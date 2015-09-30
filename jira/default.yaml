@@ -1,0 +1,10 @@
+server:
+  api_url: https://immerselearning.atlassian.net/rest/api/2
+
+auth:
+  user: CHANGE_THIS
+  password: CHANGE_THIS
+
+project:
+  name: Archway
+  id: ARCH
