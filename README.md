@@ -4,6 +4,7 @@
 1. clone repo
 2. copy jira/default.yaml to jira/config.yaml
 3. set your username and password in jira/config.yaml
+4. run `bundle install` in the repo root
 
 ### Usage
 `ruby generate_release_notes.rb VERSION_NAME`
