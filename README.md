@@ -9,4 +9,4 @@
 ### Usage
 `ruby generate_release_notes.rb VERSION_NAME`
 
-This program will search for a version with `VERSION_NAME` in it (`VERSION_NAME` can even be a regex) and print it's release notes on the standard output.
+This program will search for a version with `VERSION_NAME` in it (`VERSION_NAME` can even be a regex) and print its release notes on the standard output.
