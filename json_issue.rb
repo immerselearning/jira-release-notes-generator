@@ -1,18 +1,13 @@
 require "pp"
 
 class JSONIssue
+  attr_accessor :id, :name, :link
+
   def initialize(json)
     @json = json
     @id = @json["key"]
     @name = @json["fields"]["summary"]
-  end
-
-  def id
-    @id
-  end
-
-  def name
-    @name
+    @link = "https://immerselearning.atlassian.net/browse/#{id}"
   end
 
   def is_bug?

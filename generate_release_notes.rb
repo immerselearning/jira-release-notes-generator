@@ -3,7 +3,7 @@
 require_relative "release"
 require_relative "jira/version"
 require_relative "jira/json_provider"
-require_relative "stdout_reporter"
+require_relative "stdout_confluence_reporter"
 
 if ARGV.length == 0
   print "USAGE: ruby generate_release_notes.rb VERSION_NAME\n"
@@ -25,5 +25,5 @@ end
 Release.new(
   Jira::Version::by_name(ARGV[0]),
   Jira::JSONProvider.new,
-  StdOutReporter.new
+  StdOutConfluenceReporter.new
 ).report_notes
