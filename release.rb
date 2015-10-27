@@ -1,4 +1,4 @@
-require "./json_issue"
+require_relative "./json_issue"
 
 class Release
   STORIES_LABEL="Changes"

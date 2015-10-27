@@ -1,5 +1,5 @@
 require "json"
-require "./issue_provider"
+require_relative "./issue_provider"
 
 class FileJSONProvider < IssueProvider
   VERSION_PATH = "./version.json"

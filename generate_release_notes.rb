@@ -10,7 +10,8 @@ if ARGV.length == 0
   exit -1
 end
 
-project_root = File.dirname(File.absolute_path(__FILE__))
+path = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+project_root = File.dirname(File.absolute_path(path))
 Jira::Utils::load_config("#{project_root}/jira/config.yaml")
 
 version = Jira::Version::by_name(ARGV[0])

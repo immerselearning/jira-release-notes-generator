@@ -1,5 +1,5 @@
-require "./release_reporter"
-require "./json_issue"
+require_relative "./release_reporter"
+require_relative "./json_issue"
 
 class StdOutConfluenceReporter < ReleaseReporter
   def open_section(name)
