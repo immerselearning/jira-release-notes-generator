@@ -8,7 +8,8 @@ module Jira
   class JSONProvider < IssueProvider
     def get_version(version_id)
       Jira::Utils::search_issues(
-        "fixVersion = #{version_id}"
+        "fixVersion = #{version_id}"\
+        " AND status = Done"
       )
     end
 
