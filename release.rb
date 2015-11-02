@@ -32,6 +32,7 @@ class Release
       BUGFIXES_LABEL => @bugs_resolved,
       KNOWN_BUGS => @known_issues
     }.each do |label, issues|
+      next if issues.empty?
       @reporter.open_section label
       issues.each do |issue|
         @reporter << issue
