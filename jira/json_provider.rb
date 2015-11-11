@@ -8,8 +8,13 @@ module Jira
   class JSONProvider < IssueProvider
     def get_version(version_id)
       Jira::Utils::search_issues(
-        "fixVersion = #{version_id}"\
-        " AND status = Done"
+        "project = #{Jira::config["project"]["name"]}"\
+        " AND fixVersion = #{version_id}"\
+        " AND ("\
+          "affectedVersion != #{version_id}"\
+          " OR affectedVersion = null"\
+        ")"\
+        " AND status = Done"\
       )
     end
 
