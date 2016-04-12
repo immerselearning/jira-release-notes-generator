@@ -1,29 +1,29 @@
-require "json"
-require "rest-client"
+require 'json'
+require 'rest-client'
 
-require_relative "../issue_provider"
-require_relative "auth"
+require_relative '../issue_provider'
+require_relative 'auth'
 
 module Jira
   class JSONProvider < IssueProvider
-    def get_version(version_id)
-      Jira::Utils::search_issues(
-        "project = #{Jira::config["project"]["name"]}"\
+    def version(version_id)
+      Jira::Utils.search_issues(
+        "project = #{Jira.config['jira_project']['name']}"\
         " AND fixVersion = #{version_id}"\
-        " AND ("\
+        ' AND ('\
           "affectedVersion != #{version_id}"\
-          " OR affectedVersion = null"\
-        ")"\
-        " AND status = Done"\
+          ' OR affectedVersion = null'\
+        ')'\
+        ' AND status = Done'\
       )
     end
 
-    def get_open_bugs
-      Jira::Utils::search_issues(
-        "status != Done"\
-        " AND project = #{Jira::config["project"]["name"]}"\
-        " AND type = Bug"\
-        " ORDER BY id"
+    def open_bugs
+      Jira::Utils.search_issues(
+        'resolution = Unresolved'\
+        " AND project = #{Jira.config['jira_project']['name']}"\
+        ' AND type = Bug'\
+        ' ORDER BY id'
       )
     end
   end

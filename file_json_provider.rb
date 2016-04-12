@@ -1,21 +1,22 @@
-require "json"
-require_relative "./issue_provider"
+require 'json'
+
+require_relative './issue_provider'
 
 class FileJSONProvider < IssueProvider
-  VERSION_PATH = "./version.json"
-  OPEN_BUGS_PATH = "./open_bugs.json"
+  VERSION_PATH = './version.json'.freeze
+  OPEN_BUGS_PATH = './open_bugs.json'.freeze
 
-  def get_JSON_from_file(filename)
+  def file_to_JSON(filename)
     File.open(filename) do |f|
       JSON.load(f)
     end
   end
 
-  def get_version(version_id)
-    get_JSON_from_file(VERSION_PATH)["issues"]
+  def version(_version_id)
+    file_to_JSON(VERSION_PATH)['issues']
   end
 
-  def get_open_bugs
-    get_JSON_from_file(OPEN_BUGS_PATH)["issues"]
+  def open_bugs
+    file_to_JSON(OPEN_BUGS_PATH)['issues']
   end
 end

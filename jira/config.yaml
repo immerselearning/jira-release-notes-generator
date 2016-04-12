@@ -1,0 +1,15 @@
+server:
+  root_url: https://immerselearning.atlassian.net
+  jira_url: /rest/api/2
+  confluence_url: /wiki/rest/api
+
+auth:
+  user: chris.steel
+  password: dkedlZTk
+
+jira_project:
+  name: Archway
+  id: ARCH
+
+confluence_page:
+  id: 36503576

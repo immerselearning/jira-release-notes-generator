@@ -1,9 +1,9 @@
-require_relative "./release_reporter"
-require_relative "./json_issue"
+require_relative './release_reporter'
+require_relative './json_issue'
 
 class StdOutReporter < ReleaseReporter
   def open_section(name)
-    print "#{name}\n"
+    puts name.to_s
   end
 
   def close_section
@@ -11,6 +11,6 @@ class StdOutReporter < ReleaseReporter
   end
 
   def <<(issue)
-    print "[#{issue.id}] #{issue.name}\n"
+    puts "[#{issue.id}] #{issue.name}"
   end
 end
